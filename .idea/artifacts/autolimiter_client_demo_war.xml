@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="autolimiter-client-demo:war">
+    <output-path>$PROJECT_DIR$/autolimiter-client-demo/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>autolimiter-client-demo</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="sentinel.war">
+      <element id="artifact" artifact-name="autolimiter-client-demo:war exploded" />
+    </root>
+  </artifact>
+</component>

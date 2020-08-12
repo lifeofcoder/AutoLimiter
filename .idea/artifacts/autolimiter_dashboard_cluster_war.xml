@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="autolimiter-dashboard-cluster:war">
+    <output-path>$PROJECT_DIR$/autolimiter-dashboard-cluster/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>autolimiter-dashboard-cluster</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="sentinel-dashboard.war">
+      <element id="artifact" artifact-name="autolimiter-dashboard-cluster:war exploded" />
+    </root>
+  </artifact>
+</component>

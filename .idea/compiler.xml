@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="autolimiter-client-demo" />
+        <module name="autolimiter-dashboard-cluster" />
+        <module name="autolimiter-server-cluster" />
+        <module name="autolimiter-client" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="autolimiter-client" target="1.8" />
+      <module name="autolimiter-client-demo" target="1.8" />
+      <module name="autolimiter-dashboard-cluster" target="1.8" />
+      <module name="autolimiter-parent" target="1.8" />
+      <module name="autolimiter-server-cluster" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

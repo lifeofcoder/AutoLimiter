@@ -1,0 +1,3 @@
+# 集群服务端
+Sentinel原生只支持单机限流。如果需要支持集群限流则需要自己实现Token Server。
+本集群服务端通过raft协议，实现了高可用高性能的Token Server

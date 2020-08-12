@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/autolimiter-client/autolimiter-client.iml" filepath="$PROJECT_DIR$/autolimiter-client/autolimiter-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/autolimiter-client-demo/autolimiter-client-demo.iml" filepath="$PROJECT_DIR$/autolimiter-client-demo/autolimiter-client-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/autolimiter-dashboard-cluster/autolimiter-dashboard-cluster.iml" filepath="$PROJECT_DIR$/autolimiter-dashboard-cluster/autolimiter-dashboard-cluster.iml" />
+      <module fileurl="file://$PROJECT_DIR$/autolimiter-parent.iml" filepath="$PROJECT_DIR$/autolimiter-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/autolimiter-server-cluster/autolimiter-server-cluster.iml" filepath="$PROJECT_DIR$/autolimiter-server-cluster/autolimiter-server-cluster.iml" />
+    </modules>
+  </component>
+</project>
