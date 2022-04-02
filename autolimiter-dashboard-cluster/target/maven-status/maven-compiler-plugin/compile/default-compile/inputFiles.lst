@@ -67,7 +67,6 @@
 /bocai/learn/code/lifeofcoder/AutoLimiter/autolimiter-dashboard-cluster/src/main/java/com/lifeofcoder/autolimiter/dashboard/sentinel/dashboard/domain/cluster/ClusterStateSingleVO.java
 /bocai/learn/code/lifeofcoder/AutoLimiter/autolimiter-dashboard-cluster/src/main/java/com/lifeofcoder/autolimiter/dashboard/sentinel/dashboard/datasource/entity/rule/AuthorityRuleEntity.java
 /bocai/learn/code/lifeofcoder/AutoLimiter/autolimiter-dashboard-cluster/src/main/java/com/lifeofcoder/autolimiter/dashboard/init/impl/IgniteListenerStarter.java
-/bocai/learn/code/lifeofcoder/AutoLimiter/autolimiter-dashboard-cluster/src/main/java/com/lifeofcoder/autolimiter/dashboard/HttpClientUtils.java
 /bocai/learn/code/lifeofcoder/AutoLimiter/autolimiter-dashboard-cluster/src/main/java/com/lifeofcoder/autolimiter/dashboard/sentinel/dashboard/datasource/entity/rule/FlowRuleEntity.java
 /bocai/learn/code/lifeofcoder/AutoLimiter/autolimiter-dashboard-cluster/src/main/java/com/lifeofcoder/autolimiter/dashboard/sentinel/dashboard/domain/cluster/ClusterAppAssignResultVO.java
 /bocai/learn/code/lifeofcoder/AutoLimiter/autolimiter-dashboard-cluster/src/main/java/com/lifeofcoder/autolimiter/dashboard/ignite/listener/DiscoveryEventListener.java
@@ -149,7 +148,6 @@
 /bocai/learn/code/lifeofcoder/AutoLimiter/autolimiter-dashboard-cluster/src/main/java/com/lifeofcoder/autolimiter/dashboard/sentinel/dashboard/repository/rule/InMemFlowRuleStore.java
 /bocai/learn/code/lifeofcoder/AutoLimiter/autolimiter-dashboard-cluster/src/main/java/com/lifeofcoder/autolimiter/dashboard/model/IgniteMachine.java
 /bocai/learn/code/lifeofcoder/AutoLimiter/autolimiter-dashboard-cluster/src/main/java/com/lifeofcoder/autolimiter/dashboard/sentinel/customized/IgniteMachineDiscovery.java
-/bocai/learn/code/lifeofcoder/AutoLimiter/autolimiter-dashboard-cluster/src/main/java/com/lifeofcoder/autolimiter/dashboard/Constants.java
 /bocai/learn/code/lifeofcoder/AutoLimiter/autolimiter-dashboard-cluster/src/main/java/com/lifeofcoder/autolimiter/dashboard/sentinel/dashboard/domain/cluster/ClusterAppSingleServerAssignRequest.java
 /bocai/learn/code/lifeofcoder/AutoLimiter/autolimiter-dashboard-cluster/src/main/java/com/lifeofcoder/autolimiter/dashboard/sentinel/dashboard/repository/rule/InMemSystemRuleStore.java
 /bocai/learn/code/lifeofcoder/AutoLimiter/autolimiter-dashboard-cluster/src/main/java/com/lifeofcoder/autolimiter/dashboard/sentinel/dashboard/discovery/MachineInfo.java

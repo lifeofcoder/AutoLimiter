@@ -10,7 +10,9 @@
     <version>1.0-SNAPSHOT</version>
     <properties>
         <java.version>1.8</java.version>
-        <spring.boot.version>2.2.6.RELEASE</spring.boot.version>
+        <java.source.version>${java.version}</java.source.version>
+        <java.target.version>${java.version}</java.target.version>
+        <java.encoding>UTF-8</java.encoding>
         <sentinel.version>1.7.2</sentinel.version>
         <tomcat.version>9.0.33</tomcat.version>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -19,12 +21,173 @@
         <junit.version>4.12</junit.version>
         <mockito.version>2.21.0</mockito.version>
         <maven.compiler.version>3.8.0</maven.compiler.version>
+        <maven.compiler.version>3.8.0</maven.compiler.version>
+        <mybatis.starter.version>2.2.0</mybatis.starter.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <spring.boot.version>2.4.2</spring.boot.version>
+        <assertj.version>3.12.1</assertj.version>
+        <spring.version>5.3.3</spring.version>
+        <netty.version>4.1.55.Final</netty.version>
     </properties>
+
 
     <modules>
         <module>autolimiter-client</module>
         <module>autolimiter-client-demo</module>
-        <module>autolimiter-server-cluster</module>
+        <module>autolimiter-cluster-parent</module>
         <module>autolimiter-dashboard-cluster</module>
+        <module>autolimiter-common</module>
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-handler</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>${netty.version}</version>
+            </dependency>
+            <!-- sentinel -->
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-core</artifactId>
+                <version>${sentinel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-annotation-aspectj</artifactId>
+                <version>${sentinel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-parameter-flow-control</artifactId>
+                <version>${sentinel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-datasource-nacos</artifactId>
+                <version>${sentinel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-transport-simple-http</artifactId>
+                <version>${sentinel.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>fastjson</artifactId>
+                        <groupId>com.alibaba</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-transport-netty-http</artifactId>
+                <version>${sentinel.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>fastjson</artifactId>
+                        <groupId>com.alibaba</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.httpcomponents</groupId>
+                <artifactId>httpclient</artifactId>
+                <version>4.5.13</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-core</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>1.2.70</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.7.30</version>
+            </dependency>
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.12</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mockito</groupId>
+                <artifactId>mockito-core</artifactId>
+                <version>${mockito.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.assertj</groupId>
+                <artifactId>assertj-core</artifactId>
+                <version>${assertj.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-autoconfigure</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-configuration-processor</artifactId>
+                <version>${spring.boot.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-beans</artifactId>
+                <version>${spring.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.mybatis.spring.boot</groupId>
+                <artifactId>mybatis-spring-boot-starter</artifactId>
+                <version>${mybatis.starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.csp</groupId>
+                <artifactId>sentinel-transport-common</artifactId>
+                <version>${sentinel.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.lifeofcoder.autolimiter</groupId>
+                <artifactId>autolimiter-cluster-common</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+            <dependency>
+                <groupId>com.lifeofcoder.autolimiter</groupId>
+                <artifactId>autolimiter-client</artifactId>
+                <version>1.0-SNAPSHOT</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-compiler-plugin</artifactId>
+                    <version>${maven.compiler.version}</version>
+                    <configuration>
+                        <source>${java.source.version}</source>
+                        <target>${java.target.version}</target>
+                        <encoding>${java.encoding}</encoding>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
 </project>

@@ -1,3 +1,5 @@
+/bocai/learn/code/lifeofcoder/AutoLimiter/autolimiter-client/src/main/java/com/lifeofcoder/autolimiter/client/rule/RuleChangedListener.java
 /bocai/learn/code/lifeofcoder/AutoLimiter/autolimiter-client/src/main/java/com/lifeofcoder/autolimiter/client/heartbeat/PollHttpHeartbeatSender.java
 /bocai/learn/code/lifeofcoder/AutoLimiter/autolimiter-client/src/main/java/com/lifeofcoder/autolimiter/client/AutoLimiterException.java
 /bocai/learn/code/lifeofcoder/AutoLimiter/autolimiter-client/src/main/java/com/lifeofcoder/autolimiter/client/ConfigListener.java
+/bocai/learn/code/lifeofcoder/AutoLimiter/autolimiter-client/src/main/java/com/lifeofcoder/autolimiter/client/CustomizedSlotChainBuilder.java

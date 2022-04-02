@@ -4,9 +4,13 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/autolimiter-client/autolimiter-client.iml" filepath="$PROJECT_DIR$/autolimiter-client/autolimiter-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/autolimiter-client-demo/autolimiter-client-demo.iml" filepath="$PROJECT_DIR$/autolimiter-client-demo/autolimiter-client-demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/autolimiter-cluster-parent/autolimiter-cluster-client/autolimiter-cluster-client.iml" filepath="$PROJECT_DIR$/autolimiter-cluster-parent/autolimiter-cluster-client/autolimiter-cluster-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/autolimiter-cluster-parent/autolimiter-cluster-common/autolimiter-cluster-common.iml" filepath="$PROJECT_DIR$/autolimiter-cluster-parent/autolimiter-cluster-common/autolimiter-cluster-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/autolimiter-cluster-parent/autolimiter-cluster-parent.iml" filepath="$PROJECT_DIR$/autolimiter-cluster-parent/autolimiter-cluster-parent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/autolimiter-cluster-parent/autolimiter-cluster-server/autolimiter-cluster-server.iml" filepath="$PROJECT_DIR$/autolimiter-cluster-parent/autolimiter-cluster-server/autolimiter-cluster-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/autolimiter-common/autolimiter-common.iml" filepath="$PROJECT_DIR$/autolimiter-common/autolimiter-common.iml" />
       <module fileurl="file://$PROJECT_DIR$/autolimiter-dashboard-cluster/autolimiter-dashboard-cluster.iml" filepath="$PROJECT_DIR$/autolimiter-dashboard-cluster/autolimiter-dashboard-cluster.iml" />
       <module fileurl="file://$PROJECT_DIR$/autolimiter-parent.iml" filepath="$PROJECT_DIR$/autolimiter-parent.iml" />
-      <module fileurl="file://$PROJECT_DIR$/autolimiter-server-cluster/autolimiter-server-cluster.iml" filepath="$PROJECT_DIR$/autolimiter-server-cluster/autolimiter-server-cluster.iml" />
     </modules>
   </component>
 </project>

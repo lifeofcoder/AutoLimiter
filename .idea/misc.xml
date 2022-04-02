@@ -2,14 +2,19 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/autolimiter-client-demo" />
+    <file type="web" url="file://$PROJECT_DIR$/autolimiter-cluster-parent/autolimiter-cluster-server" />
     <file type="web" url="file://$PROJECT_DIR$/autolimiter-dashboard-cluster" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/autolimiter-cluster-parent/atolimiter-cluster-client/pom.xml" />
+        <option value="$PROJECT_DIR$/autolimiter-cluster-parent/autolimiter-cluster-commonn/pom.xml" />
+        <option value="$PROJECT_DIR$/autolimiter-cluster-parent/pom.xml" />
+        <option value="$PROJECT_DIR$/autolimiter-cluster-parent/autolimiter-cluster-common/pom.xml" />
       </list>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_13" project-jdk-name="13" project-jdk-type="JavaSDK" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="1.8u181" project-jdk-type="JavaSDK" />
 </project>

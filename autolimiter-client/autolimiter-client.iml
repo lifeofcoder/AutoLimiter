@@ -20,5 +20,7 @@
     <orderEntry type="library" name="Maven: com.alibaba.csp:sentinel-datasource-extension:1.7.2" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: com.alibaba:fastjson:1.2.70" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.slf4j:slf4j-api:1.7.30" level="project" />
+    <orderEntry type="module" module-name="autolimiter-common" />
+    <orderEntry type="library" name="Maven: io.netty:netty-all:4.1.55.Final" level="project" />
   </component>
 </module>

@@ -8,10 +8,18 @@ import com.alibaba.csp.sentinel.context.Context;
 import com.alibaba.csp.sentinel.context.ContextUtil;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.csp.sentinel.slots.block.RuleConstant;
+import com.alibaba.csp.sentinel.slots.block.flow.ClusterFlowConfig;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRule;
 import com.alibaba.csp.sentinel.slots.block.flow.FlowRuleManager;
-import com.google.common.cache.CacheBuilder;
-import com.google.common.cache.Weigher;
+import com.alibaba.fastjson.JSON;
+import com.lifeofcoder.autolimiter.client.rule.RuleChangedListener;
+import com.lifeofcoder.autolimiter.common.config.ClusterClientConfig;
+import com.lifeofcoder.autolimiter.common.config.ClusterConfigChangedHandler;
+import com.lifeofcoder.autolimiter.common.config.ClusterServerConfigItem;
+import com.lifeofcoder.autolimiter.common.config.ClusterServerTopoConfig;
+import com.lifeofcoder.autolimiter.common.model.RouteMode;
+import com.lifeofcoder.autolimiter.common.rule.CustomizedFlowRule;
+import com.lifeofcoder.autolimiter.common.utils.SpiFactory;
 import com.lifeofcoder.autolimiter.demo.client.Constants;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,7 +38,7 @@ import java.util.List;
 @RequestMapping("/test")
 public class TestController {
     static {
-        initRule();
+        initRuleAndConfig();
     }
 
     @SentinelResource(value = "test.aspect", blockHandler = "defAspect")
@@ -75,7 +83,9 @@ public class TestController {
             Tracer.traceEntry(throwable, limiterEntry);
         }
         finally {
-            limiterEntry.exit();
+            if (limiterEntry != null) {
+                limiterEntry.exit();
+            }
         }
 
         return "bocai";
@@ -83,7 +93,6 @@ public class TestController {
 
     @GetMapping("/mul")
     public String mul() {
-        System.out.println("AAAAAAAAAdDDDDDDDDDDASSS");
         try {
             Context context = ContextUtil.enter("context1");
             Entry entryA = SphU.entry("A");
@@ -157,25 +166,70 @@ public class TestController {
         return "OK";
     }
 
-    private static void initRule() {
+    private static void initRuleAndConfig() {
         List<FlowRule> rules = new ArrayList<FlowRule>();
-        FlowRule rule1 = new FlowRule();
-        rule1.setResource(Constants.RES_HELLO);
+
+        //普通限流设置
+        CustomizedFlowRule clusterFlowRule = new CustomizedFlowRule();
+        clusterFlowRule.setResource(Constants.RES_HELLO);
         // set limit qps to 20
-        rule1.setCount(20);
-        rule1.setGrade(RuleConstant.FLOW_GRADE_QPS);
-        rule1.setLimitApp("default");
-        rules.add(rule1);
+        clusterFlowRule.setCount(100);
+        clusterFlowRule.setGrade(RuleConstant.FLOW_GRADE_QPS);
+        clusterFlowRule.setLimitApp("default");
+
+        //集群设置
+        clusterFlowRule.setClusterMode(true);
+        clusterFlowRule.setClusterCount(150D);
+        clusterFlowRule.setDynamicCluster(true);
+        ClusterFlowConfig clusterFlowConfig = new ClusterFlowConfig();
+        clusterFlowConfig.setFlowId(100001L);
+        //支持集群总体
+        clusterFlowConfig.setThresholdType(1);
+        clusterFlowRule.setClusterConfig(clusterFlowConfig);
+
+        rules.add(clusterFlowRule);
         FlowRuleManager.loadRules(rules);
 
-        CacheBuilder.<String, String>newBuilder().maximumSize(10);
+        //通知集群客户端，配置变更
+        RuleChangedListener ruleChangedListener = SpiFactory.get(RuleChangedListener.class);
+        if (null != ruleChangedListener) {
+            ruleChangedListener.ruleChanged(FlowRuleManager.getRules());
+        }
 
-        CacheBuilder.<String, String>newBuilder().maximumWeight(10).weigher(new Weigher<String, String>() {
-            @Override
-            public int weigh(String key, String value) {
-                //通过权重，返回缓存项的字节大小，从而实现容量限制
-                return 0;
-            }
-        });
+        //通知集群topo数据(多个计数节点)
+        ClusterConfigChangedHandler clusterConfigChangedHandler = SpiFactory.get(ClusterConfigChangedHandler.class);
+        if (null != clusterConfigChangedHandler) {
+            /**
+             * 基本配置通知
+             */
+            ClusterClientConfig clientConfig = new ClusterClientConfig();
+            //设置路由方式
+            clientConfig.setRouteMode(RouteMode.RULE.name());
+            clusterConfigChangedHandler.configChanged(ClusterClientConfig.KEY, JSON.toJSONString(clientConfig));
+
+            /**
+             * TOPO结构变更通知
+             */
+            //系统路由计数节点配置
+            ClusterServerTopoConfig topoConfig = new ClusterServerTopoConfig();
+            topoConfig.setServerHost("127.0.0.1");
+            topoConfig.setServerPort(18730);
+
+            //资源路由计数节点配置（可配置多个）
+            List<ClusterServerConfigItem> servers = new ArrayList<>();
+            ClusterServerConfigItem item = new ClusterServerConfigItem();
+            item.setIp("127.0.0.1");
+            item.setPort(18730);
+            servers.add(item);
+
+//            ClusterServerConfigItem item2 = new ClusterServerConfigItem();
+//            item2.setIp("127.0.0.1");
+//            item2.setPort(8091);
+//            servers.add(item2);
+
+            topoConfig.setServers(servers);
+
+            clusterConfigChangedHandler.configChanged(ClusterServerTopoConfig.KEY, JSON.toJSONString(topoConfig));
+        }
     }
 }

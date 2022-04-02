@@ -6,18 +6,31 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="autolimiter-client-demo" />
+        <module name="autolimiter-cluster-client" />
         <module name="autolimiter-dashboard-cluster" />
-        <module name="autolimiter-server-cluster" />
+        <module name="autolimiter-client-demo" />
+        <module name="autolimiter-common" />
+        <module name="autolimiter-cluster-common" />
+        <module name="autolimiter-cluster-server" />
         <module name="autolimiter-client" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="autolimiter-client" target="1.8" />
       <module name="autolimiter-client-demo" target="1.8" />
+      <module name="autolimiter-cluster-client" target="1.8" />
+      <module name="autolimiter-cluster-common" target="1.8" />
+      <module name="autolimiter-cluster-commonn" target="1.8" />
+      <module name="autolimiter-cluster-parent" target="1.8" />
+      <module name="autolimiter-cluster-server" target="1.8" />
+      <module name="autolimiter-common" target="1.8" />
       <module name="autolimiter-dashboard-cluster" target="1.8" />
       <module name="autolimiter-parent" target="1.8" />
-      <module name="autolimiter-server-cluster" target="1.8" />
     </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="autolimiter-cluster-server" options="" />
+    </option>
   </component>
 </project>

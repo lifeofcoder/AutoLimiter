@@ -33,16 +33,16 @@ public class RequestTimer implements InitializingBean {
             @Override
             public void run() {
                 try {
-                    for (int i = 0; i < new Random().nextInt(100); i++) {
+                    for (int i = 0; i < getRandom(); i++) {
                         testController.mul();
                     }
-                    for (int i = 0; i < new Random().nextInt(100); i++) {
+                    for (int i = 0; i < getRandom(); i++) {
                         testController.hello();
                     }
-                    for (int i = 0; i < new Random().nextInt(100); i++) {
+                    for (int i = 0; i < getRandom(); i++) {
                         testController.auto();
                     }
-                    for (int i = 0; i < new Random().nextInt(100); i++) {
+                    for (int i = 0; i < getRandom(); i++) {
                         testController.aspect();
                     }
                 }
@@ -51,6 +51,10 @@ public class RequestTimer implements InitializingBean {
                     e.printStackTrace(System.out);
                 }
             }
-        }, 10, 2, TimeUnit.SECONDS);
+        }, 10, 500, TimeUnit.MILLISECONDS);
+    }
+
+    private int getRandom() {
+        return new Random().nextInt(100) + 100;
     }
 }
