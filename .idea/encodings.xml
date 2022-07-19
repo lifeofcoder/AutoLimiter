@@ -13,11 +13,15 @@
     <file url="file://$PROJECT_DIR$/autolimiter-cluster-parent/autolimiter-cluster-server/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/autolimiter-cluster-parent/autolimiter-cluster-server/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/autolimiter-cluster-parent/autolimiter-cluster-server/src/main/webapp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/autolimiter-cluster-parent/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/autolimiter-cluster-parent/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/autolimiter-common/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/autolimiter-common/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/autolimiter-dashboard-cluster/src/main/java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/autolimiter-dashboard-cluster/src/main/resources" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/autolimiter-dashboard-cluster/src/main/webapp" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
     <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

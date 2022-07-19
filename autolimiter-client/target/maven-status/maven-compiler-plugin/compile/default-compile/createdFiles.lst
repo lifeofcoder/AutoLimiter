@@ -1,5 +1,5 @@
+com/lifeofcoder/autolimiter/client/CustomizedSlotChainBuilder.class
+com/lifeofcoder/autolimiter/client/heartbeat/PollHttpHeartbeatSender.class
 com/lifeofcoder/autolimiter/client/rule/RuleChangedListener.class
 com/lifeofcoder/autolimiter/client/ConfigListener.class
-com/lifeofcoder/autolimiter/client/CustomizedSlotChainBuilder.class
 com/lifeofcoder/autolimiter/client/AutoLimiterException.class
-com/lifeofcoder/autolimiter/client/heartbeat/PollHttpHeartbeatSender.class
