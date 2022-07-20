@@ -23,15 +23,19 @@ Sentinel自动限流降级的集群方案。主要计划解决如下两个问题
 Sentinel控制台集群方案.基于Ignite实现控制台集群，解决了Sentinel自带控制台的单点故障问题。
 其具体原理和基本使用请访问：[集群控制台原理与基本使用](https://blog.csdn.net/hilaryfrank/article/details/107963175 '原理与使用')
 
-## autolimiter-server-common（done）
+## autolimiter-cluster-parent(done)
+高性能高可用集群限流解决方案。
+其具体原理和基本使用请访问：[Sentinel高性能高可用集群限流解决方案](https://blog.csdn.net/hilaryfrank/article/details/125879672 '原理与使用')
+
+### autolimiter-cluster-common（done）
 Sentinel集群限流的公共包
 
-## autolimiter-server-cluster（done）
+### autolimiter-cluster-cluster（done）
 Sentinel集群限流Token Server。基于动态集群流控的高可用高并发高性能的Token Server。其支持如下功能：
 * 动态集群流控，即动态计算并返回最新的单机流控数据给客户端实现实时动态集群流控
 * 普通集群流控，即每次客户端都实时请求TokenServer，实时判断集群流控
 
-## autolimiter-server-client (done)
+### autolimiter-cluster-client (done)
 Sentinel集群流控客户端，和Token Server结合起来实现集群流控。其主要功能：
 * 根据配置可动态选择集群流控方式：动态还是普通
 * 对接Token Server支持容错策略，当Token Server可用率低于阈值（默认95%）时，自动降级到本地流控
